@@ -1,8 +1,7 @@
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-module.exportes = {
-    
+module.exports = {
     entry: './src/index.jsx',
     output: {
         path: __dirname + '/public',
@@ -10,12 +9,12 @@ module.exportes = {
     },
     devServer: {
         port: 8080,
-        contentBase: './public'
+        contentBase: './public',
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],
         alias: {
-            module: __dirname + 'node_modules'
+            modules: __dirname + '/node_modules'
         }
     },
     plugins: [
@@ -30,10 +29,10 @@ module.exportes = {
                 presets: ['es2015', 'react'],
                 plugins: ['transform-object-rest-spread']
             }
-        },{
+        }, {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-        },{
+        }, {
             test: /\.woff|.woff2|.ttf|.eot|.svg*.*$/,
             loader: 'file'
         }]
